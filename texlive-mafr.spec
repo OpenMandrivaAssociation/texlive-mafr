@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /macros/latex/contrib/mafr
+# catalog-date 2007-03-09 22:25:45 +0100
+# catalog-license gpl
+# catalog-version 1.0
 Name:		texlive-mafr
 Version:	1.0
 Release:	1
@@ -47,6 +53,7 @@ The documentation is in French.
 %doc %{_texmfdistdir}/doc/latex/mafr/docmafr.pdf
 %doc %{_texmfdistdir}/doc/latex/mafr/docmafr.tex
 %doc %{_texmfdistdir}/doc/latex/mafr/triangle.eps
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -57,3 +64,5 @@ The documentation is in French.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
