@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	Mathematics in accord with French usage
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/mafr
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/mafr
 License:	GPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mafr.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mafr.doc.r%{version}.tar.xz
