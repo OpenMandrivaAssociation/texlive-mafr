@@ -1,50 +1,23 @@
-Name:		texlive-mafr
-Version:	15878
-Release:	2
+%global tl_name mafr
+%global tl_revision 15878
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.0
+Release:	%{tl_revision}.1
 Summary:	Mathematics in accord with French usage
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/mafr
-License:	GPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mafr.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mafr.doc.r%{version}.tar.xz
+License:	gpl
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/mafr.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/mafr.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package provides settings and macros for typesetting
-mathematics with LaTeX in compliance with French usage. It
-comes with two document classes, 'fiche' and 'cours', useful to
-create short high school documents such as tests or lessons.
-The documentation is in French.
+The package provides settings and macros for typesetting mathematics
+with LaTeX in compliance with French usage. It comes with two document
+classes, 'fiche' and 'cours', useful to create short high school
+documents such as tests or lessons. The documentation is in French.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/mafr/cours.cls
-%{_texmfdistdir}/tex/latex/mafr/fiche.cls
-%{_texmfdistdir}/tex/latex/mafr/mafr.sty
-%doc %{_texmfdistdir}/doc/latex/mafr/ALIRE
-%doc %{_texmfdistdir}/doc/latex/mafr/COPYING
-%doc %{_texmfdistdir}/doc/latex/mafr/README
-%doc %{_texmfdistdir}/doc/latex/mafr/docmafr.pdf
-%doc %{_texmfdistdir}/doc/latex/mafr/docmafr.tex
-%doc %{_texmfdistdir}/doc/latex/mafr/triangle.eps
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc %{buildroot}%{_texmfdistdir}
